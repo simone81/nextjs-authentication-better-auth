@@ -1,0 +1,36 @@
+========= Tutorial BetterAuth:
+https://www.youtube.com/watch?v=LMUsWY5alY0
+====GitRepo: https://github.com/machadop1407/nextjs-authentication-better-auth
+
+# git clone https://github.com/machadop1407/nextjs-authentication-better-auth.git
+
+=====================================================================================
+BetterAuth Doc
+https://better-auth.com/docs/adapters/prisma
+
+Prysma Docs:
+https://www.prisma.io/docs/guides/authentication/better-auth/nextjs
+
+1. npm install better-auth
+2. .env file:
+   BETTER_AUTH_SECRET=SfF1tUh5ZcefhhF7KOUfHG1Z0s79D1HX
+   BETTER_AUTH_URL=http://localhost:3000
+3. /lib/auth.ts >>> configurazione betterAuth con DB + providers autenticazione
+
+4. # npm install prima + #npx prisma init
+   # npm i @prisma/adapter-pg
+5. # npx prisma generate
+
+6. # npx @better-auth/cli generate >>> genera le tabelle (modelli) per gli utenti nel file schema.prisma
+7. aggiustare lo schema di dtestinazione schemas = ["betterauth"] + @@schema("betterauth") // <── Dì a Prisma di usare lo schema
+8. DATABASE_URL=postgresql://postgres:Scappe81_Psg@localhost:5432/mylocal_posgres_db?schema=betterauth"
+
+9. Prima mnigrazione DB con prisma:
+
+   # npx prisma migrate dev --name init
+
+10. plugins: [nextCookies()]
+
+11. Creare la API route per BetterAuth >>> /app/api/auth/[...all]/route.ts
+
+12. creare le server actions signIn e signUp :::: /lib/actions/auth-actions.ts
